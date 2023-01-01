@@ -42,8 +42,9 @@ function capitalize(character) {
      * un tableau des 2 possibles combinaison (les indices paires en majuscules dans le premiers
      * élément du tableau et les indices impaires en miniscules dans le second élément du
      * tableau)
-     * @param : character -> chaine à traiter
-     * @param : newWord1, newWord -> chaine transformé
+     * @param character -> chaine à traiter
+     * @param  newWord1 -> chaine transformé
+     * @param newWord -> chaine transformé
      * @returns capitalizedTable;
      */
 
@@ -80,3 +81,54 @@ function capitalize(character) {
 capitalize("abcdef");
 
 /* ****************** End Exercice 2 ********************* */
+
+/* ****************** Exercice 3 : Is Palindrome *********************** */
+
+// 1 - Write a javascript function that checks whether a string is a palindrome or not
+
+function isPalindrome(character) {
+
+    /**
+     * @description : cette fonction permet de vérifier si une chaine de caractère
+     * est un palindrome, elle se base sur la parité du nombre de caratère de cette chaine
+     * afin de savoir quel  traitement éffectué sur la chaine pour déterminer si
+     * c'est un palindrome ou non.
+     * @param middleOfCharacter
+     * @param firstPartString
+     * @param lastPartString
+     * @param lastPartStringReverse
+     * @returns booelan, if is true it mean that charcters in a palindrome else not
+     */
+
+    let middleOfCharacter = character.length / 2;
+    let firstPartString;
+    let lastPartString;
+    let lastPartStringReverse;
+
+    if(character.length % 2 == 0) {
+
+        firstPartString = character.toLowerCase().slice(0, middleOfCharacter);
+        lastPartString = character.toLowerCase().slice(middleOfCharacter);
+        lastPartStringReverse = lastPartString.split("").reverse().join("");
+
+    }
+    else {
+
+        firstPartString = character.toLowerCase().slice(0, middleOfCharacter);
+        lastPartString = character.toLowerCase().slice(middleOfCharacter + 1);
+        lastPartStringReverse = lastPartString.split("").reverse().join("");
+
+    }
+
+    if(firstPartString == lastPartStringReverse) {
+
+        console.log("The entry is a palindrome");
+        return true;
+
+    }
+    return false;
+}
+
+isPalindrome("madam");
+
+/* ******************* End Exercice 3 ********************** */
