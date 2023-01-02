@@ -101,24 +101,9 @@ function isPalindrome(character) {
      */
 
     let middleOfCharacter = character.length / 2;
-    let firstPartString;
-    let lastPartString;
-    let lastPartStringReverse;
-
-    if(character.length % 2 == 0) {
-
-        firstPartString = character.toLowerCase().slice(0, middleOfCharacter);
-        lastPartString = character.toLowerCase().slice(middleOfCharacter);
-        lastPartStringReverse = lastPartString.split("").reverse().join("");
-
-    }
-    else {
-
-        firstPartString = character.toLowerCase().slice(0, middleOfCharacter);
-        lastPartString = character.toLowerCase().slice(middleOfCharacter + 1);
-        lastPartStringReverse = lastPartString.split("").reverse().join("");
-
-    }
+    let firstPartString = character.toLowerCase().slice(0, middleOfCharacter);
+    let lastPartString = character.toLowerCase().slice((character.length % 2 == 0) ? middleOfCharacter : middleOfCharacter + 1);
+    let lastPartStringReverse = lastPartString.split("").reverse().join("");
 
     if(firstPartString == lastPartStringReverse) {
 
